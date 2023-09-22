@@ -104,17 +104,17 @@
 
 // No. 7
 
-//   Map<String, dynamic> getInfo () {
-//     return {
-//       'name': 'Lailatul Badriyah',
-//       'age': 20,
-//       'address': 'Malang',
-//     };
-//   }
+  Map<String, dynamic> getInfo () {
+    return {
+      'name': 'Lailatul Badriyah',
+      'age': 20,
+      'address': 'Malang',
+    };
+  }
 
-// void main() {
-//   var data = getInfo();
-//   print("Name: ${data['name']}");
-//   print("Age: ${data['age']}");
-//   print("Address: ${data['address']}");
-// }
+void main() {
+  var data = getInfo();
+  print("Name: ${data['name']}");
+  print("Age: ${data['age']}");
+  print("Address: ${data['address']}");
+}

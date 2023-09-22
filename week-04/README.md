@@ -418,6 +418,8 @@ c. Named Parameters (Parameter yang Dinamai)
 - Untuk membuat return multiple value di Functions, kita dapat menggunakan `maps`.
 
 - Contoh:
+  Berikut adalah contoh sederhana tentang bagaimana mengembalikan multiple values (nama, usia, dan alamat) dari fungsi getInfo() dalam bentuk Map. Kemudian, di dalam main(), nilai-nilai tersebut diakses menggunakan kunci (key) yang sesuai untuk mencetak informasi seperti nama, usia, dan alamat.
+
   ![Screenshot](./docs/tugas7.png)
 
 8. Kumpulkan berupa link commit repo GitHub pada tautan yang telah disediakan di grup Telegram!
