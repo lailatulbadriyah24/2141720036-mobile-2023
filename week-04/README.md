@@ -28,7 +28,7 @@ print(list[1]);
 ### Langkah 2:
 Silakan coba eksekusi (Run) kode pada langkah 1 tersebut. Apa yang terjadi? Jelaskan!
 ### Jawaban:
-Setelah dieksekusi, kode pada langkah 1 berjalan dengan benar dan menampilkan output yang sesuai.
+Setelah dieksekusi, kode pada langkah 1 berjalan dengan benar dan menampilkan output yang sesuai. Akan melihat output yang mencerminkan operasi yang telah dilakukan pada list `list`. Panjang list awalnya adalah 3, elemen kedua adalah 2, kemudian elemen kedua diubah menjadi 1, dan pernyataan asersi memeriksa perubahan tersebut
 
 ### Langkah 3:
 Ubah kode pada langkah 1 menjadi variabel final yang mempunyai index = 5 dengan default value = null. Isilah nama dan NIM Anda pada elemen index ke-1 dan ke-2. Lalu print dan capture hasilnya.
@@ -37,6 +37,7 @@ Apa yang terjadi ? Jika terjadi error, silakan perbaiki.
 
 ### Jawaban:
 Yang terjadi yaitu kode akan berjalan dengan baik dan menghasilkan output yangs sesuai.
+Ketika mengubah kode seperti yang diperintahkan, maka akan membuat sebuah list dengan panjang 5 yang memiliki nilai default null. Kemudian, mengisi indeks 1 dengan nama saya dan indeks 2 dengan NIM saya. Hasil outputnya menunjukkan list dengan nilai null pada indeks yang tidak diisi dan nilai sesuai pada indeks 1 dan 2. Hasil output list adalah [null, Nama saya, NIM saya, null, null].
 ### Code dan Output
 ![Screenshot](./docs/p1-langkah3.png)
 
@@ -56,7 +57,7 @@ print(halogens);
 Silakan coba eksekusi (Run) kode pada langkah 1 tersebut. Apa yang terjadi? Jelaskan! Lalu perbaiki jika terjadi error.
 
 ### Jawaban:
-Setelah dieksekusi, kode pada langkah 1 berjalan dengan baik tanpa masalah dan menghasilkan output yang sesuai .
+Setelah dieksekusi, kode pada langkah 1 berjalan dengan baik tanpa masalah dan menghasilkan output yaitu mencetak isi dari set `halogens`. 
 
 ### Langkah 3:
 Tambahkan kode program berikut, lalu coba eksekusi (Run) kode Anda.
@@ -159,6 +160,7 @@ Silakan coba eksekusi (Run) kode pada langkah 1 tersebut. Apa yang terjadi? Jela
 
 ### Jawaban:
 Setelah dieksekusi kode pada langkah 1 menampilkan error, karena ada beberapa kesalahan yang menyebabkan error. Di antaranya adalah kesalahan penamaan variabel list yang seharusnya list1, dan ada juga kesalahan pada pemanggilan print(list1). Untuk memperbaikinya, dapat mengganti nama variabel 'list' menjadi 'list1' atau mengganti argumen pada print.
+
 ![Screenshot](./docs/p4-langkah2.png)
 
 ### Langkah 3:
@@ -358,7 +360,7 @@ c. Named Parameters (Parameter yang Dinamai)
 - Contoh:
 
   Berikut adalah contoh fungsi yang menggunakan tiga named parameters: panjang, lebar, dan tinggi. Kita dapat memanggil fungsi ini dengan menyebutkan nama parameter yang ingin kita isi, dan urutan parameter tidak penting.
-  
+
   ![Screenshot](./docs/tugas3-named-param.png)
 
 
