@@ -1,3 +1,12 @@
+# Pemrograman Mobile
+
+# Flutter Fundamental - Bagian 1
+
+- **Nama:** Lailatul Badriyah
+- **NIM:** 2141720036
+- **Kelas:** TI-3H
+- **No Absen:** 14
+
 # Praktikum 1: Membuat Project Flutter Baru
 
 ## Langkah 1:
