@@ -46,7 +46,7 @@ Silakan screenshot seperti pada Langkah 11, namun teks yang ditampilkan dalam ap
 
 ![Screenshot](./docs/p2-langkah12.png)
 
-<img src="./docs/p2-hasil-langkah12.jpg" alt="Screenshot" height="800">
+<img src="./docs/p2-hasil-langkah12.jpg" alt="Screenshot" height="600">
 
 # Praktikum 3: Menerapkan Widget Dasar
 
