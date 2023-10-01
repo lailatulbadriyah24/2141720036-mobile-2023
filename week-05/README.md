@@ -39,7 +39,7 @@ Dikarenakan Project ini sudah saya letakkan pada repository Github, maka saya la
 
 ![Screenshot](./docs/p2-langkah11.png)
 
-<img src="./docs/p2-hasil-langkah11.jpg" alt="Screenshot" height="500">
+<img src="./docs/p2-hasil-langkah11.jpg" alt="Screenshot" height="600">
 
 ## Langkah 12:
 Silakan screenshot seperti pada Langkah 11, namun teks yang ditampilkan dalam aplikasi berupa nama lengkap Anda. Simpan file screenshot dengan nama 01.png pada folder docs (buat folder baru jika belum ada) di project hello_world Anda. Lalu ubah isi README.md seperti berikut, sehingga tampil hasil screenshot pada file README.md. Kemudian push ke repository Anda.
@@ -71,7 +71,7 @@ Lakukan penyesuaian asset pada file `pubspec.yaml` dan tambahkan file logo Anda 
 Jangan lupa sesuaikan kode dan import di file `main.dart` kemudian akan tampil gambar seperti berikut.
 ![Screenshot](./docs/p3-langkah2-2.png)
 
-<img src="./docs/p3-hasil-langkah2.jpg" alt="Screenshot" height="500">
+<img src="./docs/p3-hasil-langkah2.jpg" alt="Screenshot" height="600">
 
 # Praktikum 4: Menerapkan Widget Material Design dan iOS Cupertino
 
@@ -83,7 +83,7 @@ Buat file di basic_widgets > `loading_cupertino.dart`. Import stateless widget d
 
 ![Screenshot](./docs/p4-langkah1-1.png)
 
-<img src="./docs/p4-hasil-langkah1.jpg" alt="Screenshot" height="500">
+<img src="./docs/p4-hasil-langkah1.jpg" alt="Screenshot" height="600">
 
 ## Langkah 2: Floating Action Button (FAB)
 
@@ -93,7 +93,7 @@ Buat file di basic_widgets > `fab_widget.dart`. Import stateless widget dari mat
 
 ![Screenshot](./docs/p4-langkah2-2.png)
 
-<img src="./docs/p4-hasil-langkah2.jpg" alt="Screenshot" height="500">
+<img src="./docs/p4-hasil-langkah2.jpg" alt="Screenshot" height="600">
 
 ## Langkah 3: Scaffold Widget
 
@@ -102,7 +102,7 @@ Ubah isi kode `main.dart` seperti berikut.
 
 ![Screenshot](./docs/p4-langkah3.png)
 
-<img src="./docs/p4-hasil-langkah3.jpg" alt="Screenshot" height="500">
+<img src="./docs/p4-hasil-langkah3.jpg" alt="Screenshot" height="600">
 
 ## Langkah 4: Dialog Widget
 
@@ -111,7 +111,7 @@ Ubah isi kode `main.dart` seperti berikut.
 
 ![Screenshot](./docs/p4-langkah4.png)
 
-<img src="./docs/p4-hasil-langkah4.jpg" alt="Screenshot" height="500">
+<img src="./docs/p4-hasil-langkah4.jpg" alt="Screenshot" height="600">
 
 ## Langkah 5: Input dan Selection Widget
 
@@ -121,7 +121,7 @@ Contoh penggunaan TextField widget adalah sebagai berikut:
 
 ![Screenshot](./docs/p4-langkah5.png)
 
-<img src="./docs/p4-hasil-langkah5.jpg" alt="Screenshot" height="500">
+<img src="./docs/p4-hasil-langkah5.jpg" alt="Screenshot" height="600">
 
 ## Langkah 6: Date and Time Pickers
 
@@ -129,7 +129,7 @@ Date and Time Pickers termasuk pada kategori input dan selection widget, berikut
 
 ![Screenshot](./docs/p4-langkah6.png)
 
-<img src="./docs/p4-hasil-langkah6.jpg" alt="Screenshot" height="500">
+<img src="./docs/p4-hasil-langkah6.jpg" alt="Screenshot" height="600">
 
 # Tugas Praktikum
 
