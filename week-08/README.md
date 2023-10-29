@@ -149,6 +149,7 @@ final itemArgs = ModalRoute.of(context)!.settings.arguments as Item;
 
 ### Jawab:
 
+### **Mendefinisikan Class HomePage dan ItemPage dengan Lengkap**
 `main.dart`
 ```Javascript
 import 'package:belanja/pages/home_page.dart';
@@ -169,6 +170,8 @@ void main() {
 `home_page.dart`
 ```Javascript
 import 'package:belanja/models/item.dart';
+import 'package:belanja/widgets/laila_bottom_app_bar.dart';
+import 'package:belanja/widgets/laila_card.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -226,120 +229,24 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Shopping List'),
-      ),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Menampilkan 2 item per baris
-          childAspectRatio: 0.7, // Mengatur rasio lebar-tinggi item
+        appBar: AppBar(
+          title: const Text('Shopping List'),
         ),
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          final item = items[index];
-          return InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, '/item', arguments: item);
-            },
-            child: Card(
-              child: Padding(
-                padding: const EdgeInsets.all(
-                    8), // Tambahkan padding pada keseluruhan Card
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Hero(
-                      tag: 'productImage${item.name}',
-                      child: AspectRatio(
-                        aspectRatio:
-                            1, // Rasio lebar-tinggi 1:1 untuk ukuran yang sama
-                        child: Image.asset(item.imgUrl, fit: BoxFit.cover),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment
-                          .spaceBetween, // Agar rating berada di sebelah kanan
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 8), // Padding di atas teks "name"
-                          child: Text(
-                            item.name,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.star, color: Colors.amber, size: 16),
-                            SizedBox(
-                                width:
-                                    4), // Tambahkan jarak horizontal sebesar 4
-                            Text(
-                              item.rating.toString(),
-                              style: const TextStyle(
-                                color: Colors.amber,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Text(
-                        'Rp. ${item.price}',
-                        style: const TextStyle(
-                          color: Colors.redAccent,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      'Stok: ${item.stok}',
-                      style: const TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        },
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: const BoxDecoration(
-            color: Colors.blue,
+        body: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, // Menampilkan 2 item per baris
+            childAspectRatio: 0.7, // Mengatur rasio lebar-tinggi item
           ),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Nama: Lailatul Badriyah',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
-              ),
-              Text(
-                'NIM: 2141720036',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
-              ),
-            ],
-          ),
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            final item = items[index];
+            return LailaCard(
+                item: item,
+                onTap: () =>
+                    Navigator.pushNamed(context, '/item', arguments: item));
+          },
         ),
-      ),
-    );
+        bottomNavigationBar: LailaBottomAppBar());
   }
 }
 ```
@@ -347,6 +254,8 @@ class HomePage extends StatelessWidget {
 `item_page.dart`
 ```Javascript
 import 'package:belanja/models/item.dart';
+import 'package:belanja/widgets/laila_bottom_app_bar.dart';
+import 'package:belanja/widgets/laila_detail_item.dart';
 import 'package:flutter/material.dart';
 
 class ItemPage extends StatelessWidget {
@@ -357,107 +266,17 @@ class ItemPage extends StatelessWidget {
     final item = ModalRoute.of(context)!.settings.arguments as Item;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Item Details'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Hero(
-              tag: 'productImage${item.name}',
-              child: Image.asset(item.imgUrl, fit: BoxFit.cover),
-            ),
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            item.name,
-                            style: const TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const Spacer(), // Ini akan membuat rating sejajar dengan nama
-                          Row(
-                            children: [
-                              const Icon(Icons.star,
-                                  color: Colors.amber, size: 20),
-                              const SizedBox(width: 4),
-                              Text(
-                                item.rating.toString(),
-                                style: const TextStyle(
-                                  color: Colors.amber,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          Text(
-                            'Rp. ${item.price}',
-                            style: const TextStyle(
-                              fontSize: 18,
-                              color: Colors.redAccent,
-                            ),
-                          ),
-                          const Spacer(), // Ini akan membuat rating dan stok sejajar di bagian bawah kanan
-                          Text(
-                            'Stok: ${item.stok}',
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
+        appBar: AppBar(
+          title: const Text('Item Details'),
         ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: const BoxDecoration(
-            color: Colors.blue,
-          ),
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Nama: Lailatul Badriyah',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
-              ),
-              Text(
-                'NIM: 2141720036',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
-              ),
-            ],
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [LailaDetailItem(item: item)],
           ),
         ),
-      ),
-    );
+        bottomNavigationBar: LailaBottomAppBar());
   }
 }
 ```
@@ -475,6 +294,213 @@ class Item {
       required this.imgUrl,
       required this.stok,
       required this.rating});
+}
+```
+
+### **Membuat Widget**
+
+`laila_bottom_app_bar.dart`
+```Javascript
+import 'package:flutter/material.dart';
+
+class LailaBottomAppBar extends StatelessWidget {
+  const LailaBottomAppBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomAppBar(
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: const BoxDecoration(
+          color: Colors.blue,
+        ),
+        child: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Nama: Lailatul Badriyah',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+            Text(
+              'NIM: 2141720036',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+`laila_card.dart`
+```Javascript
+import 'package:belanja/models/item.dart';
+import 'package:flutter/material.dart';
+
+class LailaCard extends StatelessWidget {
+  void Function() onTap;
+  final Item item;
+  LailaCard({super.key, required this.item, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(
+              8), // Tambahkan padding pada keseluruhan Card
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Hero(
+                tag: 'productImage${item.name}',
+                child: AspectRatio(
+                  aspectRatio:
+                      1, // Rasio lebar-tinggi 1:1 untuk ukuran yang sama
+                  child: Image.asset(item.imgUrl, fit: BoxFit.cover),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment
+                    .spaceBetween, // Agar rating berada di sebelah kanan
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 8), // Padding di atas teks "name"
+                    child: Text(
+                      item.name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.star, color: Colors.amber, size: 16),
+                      SizedBox(
+                          width: 4), // Tambahkan jarak horizontal sebesar 4
+                      Text(
+                        item.rating.toString(),
+                        style: const TextStyle(
+                          color: Colors.amber,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Text(
+                  'Rp. ${item.price}',
+                  style: const TextStyle(
+                    color: Colors.redAccent,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+              Text(
+                'Stok: ${item.stok}',
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+`laila_detail_item.dart`
+```Javascript
+import 'package:belanja/models/item.dart';
+import 'package:flutter/material.dart';
+
+class LailaDetailItem extends StatelessWidget {
+  final Item item;
+  const LailaDetailItem({super.key, required this.item});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Hero(
+          tag: 'productImage${item.name}',
+          child: Image.asset(item.imgUrl, fit: BoxFit.cover),
+        ),
+        const SizedBox(height: 16),
+        Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        item.name,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Spacer(), // Ini akan membuat rating sejajar dengan nama
+                      Row(
+                        children: [
+                          const Icon(Icons.star, color: Colors.amber, size: 20),
+                          const SizedBox(width: 4),
+                          Text(
+                            item.rating.toString(),
+                            style: const TextStyle(
+                              color: Colors.amber,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Text(
+                        'Rp. ${item.price}',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          color: Colors.redAccent,
+                        ),
+                      ),
+                      const Spacer(), // Ini akan membuat rating dan stok sejajar di bagian bawah kanan
+                      Text(
+                        'Stok: ${item.stok}',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
 }
 ```
 
