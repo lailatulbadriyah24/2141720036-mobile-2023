@@ -256,6 +256,130 @@ Pada langkah 2, dilakukan penambahan method `count`. Method ini memiliki tiga pe
 
 ## **Praktikum 3: Menggunakan Completer di Future**
 
+`main.dart`
+
+```Dart
+import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
+import 'package:async/async.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo Laila',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: const FuturePage(),
+    );
+  }
+}
+
+class FuturePage extends StatefulWidget {
+  const FuturePage({super.key});
+
+  @override
+  State<FuturePage> createState() => _FuturePageState();
+}
+
+class _FuturePageState extends State<FuturePage> {
+  String result = '';
+  late Completer completer;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Back from the Future Laila'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Spacer(),
+            ElevatedButton(
+              onPressed: () {
+                getNumber().then((value) {
+                  setState(() {
+                    result = value.toString();
+                  });
+                }).catchError((e) {
+                  result = 'An error Occured';
+                });
+              },
+              child: const Text("GO!"),
+            ),
+            const Spacer(),
+            Text(result),
+            const Spacer(),
+            const CircularProgressIndicator(),
+            const Spacer()
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future getNumber() {
+    completer = Completer<int>();
+    calculate();
+    return completer.future;
+  }
+
+  calculate() async {
+    try {
+      await Future.delayed(const Duration(seconds: 5));
+      completer.complete(42);
+    } catch (e) {
+      completer.completeError({});
+    }
+  }
+
+  Future<Response> getData() async {
+    const authority = 'www.googleapis.com';
+    const path = '/books/v1/volumes/tZldEAAAQBAJ';
+    Uri url = Uri.https(authority, path);
+    return await http.get(url);
+  }
+
+  Future<int> returnOneAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 1;
+  }
+
+  Future<int> returnTwoAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 2;
+  }
+
+  Future<int> returnThreeAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 3;
+  }
+
+  Future count() async {
+    int total = 0;
+    total = await returnOneAsync();
+    total += await returnTwoAsync();
+    total += await returnThreeAsync();
+    setState(() {
+      result = total.toString();
+    });
+  }
+}
+```
+
 ### Soal 5
 
 - Jelaskan maksud kode langkah 2 tersebut!
@@ -272,3 +396,17 @@ Method kedua, `calculate` yang mensimulasikan operasi yang membutuhkan waktu den
 ### Jawab
 
 <img src="./docs/prak3-soal5.gif" alt="Screenshot" width="300">
+
+### Soal 6
+
+- Jelaskan maksud perbedaan kode langkah 2 dengan langkah 5-6 tersebut!
+
+### Jawab
+
+Pada langkah 2 tidak menangani error secara eksplisit. Sementara itu, langkah 5 mengubah metode `calculate` dengan menambahkan blok `try-catch`. Jika terjadi kesalahan selama operasi asinkron (misalnya, penundaan gagal), blok `catch` akan menangkap kesalahan tersebut, dan `completer` akan diselesaikan dengan sebuah objek kosong `{}`. Langkah 6 adalah bagian dari fungsi `onPressed` pada tombol "GO!" yang memanggil metode `getNumber`. Pada langkah ini, setelah pemanggilan `getNumber`, `then` digunakan untuk menangkap hasilnya. Dalam blok `then`, nilai hasil dikonversi menjadi string dan diperbarui ke dalam variabel `result` melalui `setState`. Jika ada kesalahan, `catchError` akan menangkapnya dan mengatur `result` ke string "An error Occurred".
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di `README`. Lalu lakukan commit dengan pesan "W12: Soal 6".
+
+### Jawab
+
+<img src="./docs/prak3-soal6.gif" alt="Screenshot" width="300">
