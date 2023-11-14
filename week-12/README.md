@@ -253,3 +253,22 @@ Pada langkah 2, dilakukan penambahan method `count`. Method ini memiliki tiga pe
 ### Jawab:
 
 <img src="./docs/prak2-soal4.gif" alt="Screenshot" width="300">
+
+## **Praktikum 3: Menggunakan Completer di Future**
+
+### Soal 5
+
+- Jelaskan maksud kode langkah 2 tersebut!
+
+### Jawab
+Langkah 2 dalam kode tersebut memberikan pengenalan konsep `Completer` dalam Flutter. Pertama mendeklarasikan variabel `completer` sebagai `late Completer`, yang artinya nilai variabel ini akan diinisialisasi sebelum digunakan. Selanjutnya ada dua metode yang ditambahkan.
+
+Method pertama, `getNumber` yang bertugas membuat sebuah `Completer`, lalu memanggil method lain yaitu `calculate`. Kemudian methodeini mengembalikan `future` dari `completer`. `Future` ini yang nantinya menjadi janji bahwa suatu nilai akan tersedia di masa depan.
+
+Method kedua, `calculate` yang mensimulasikan operasi yang membutuhkan waktu dengan cara menunda selama 5 detik menggunakan `await Future.delayed(...)`. Setelah itu, nilai `completer` diisi dengan angka 42, yang artinya operasi ini telah selesai.
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di `README`. Lalu lakukan commit dengan pesan "W12: Soal 5".
+
+### Jawab
+
+<img src="./docs/prak3-soal5.gif" alt="Screenshot" width="300">
