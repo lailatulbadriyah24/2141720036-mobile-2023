@@ -384,7 +384,8 @@ class _FuturePageState extends State<FuturePage> {
 
 - Jelaskan maksud kode langkah 2 tersebut!
 
-### Jawab
+### Jawab:
+
 Langkah 2 dalam kode tersebut memberikan pengenalan konsep `Completer` dalam Flutter. Pertama mendeklarasikan variabel `completer` sebagai `late Completer`, yang artinya nilai variabel ini akan diinisialisasi sebelum digunakan. Selanjutnya ada dua metode yang ditambahkan.
 
 Method pertama, `getNumber` yang bertugas membuat sebuah `Completer`, lalu memanggil method lain yaitu `calculate`. Kemudian methodeini mengembalikan `future` dari `completer`. `Future` ini yang nantinya menjadi janji bahwa suatu nilai akan tersedia di masa depan.
@@ -401,21 +402,172 @@ Method kedua, `calculate` yang mensimulasikan operasi yang membutuhkan waktu den
 
 - Jelaskan maksud perbedaan kode langkah 2 dengan langkah 5-6 tersebut!
 
-### Jawab
+### Jawab:
 
 Pada langkah 2 tidak menangani error secara eksplisit. Sementara itu, langkah 5 mengubah metode `calculate` dengan menambahkan blok `try-catch`. Jika terjadi kesalahan selama operasi asinkron (misalnya, penundaan gagal), blok `catch` akan menangkap kesalahan tersebut, dan `completer` akan diselesaikan dengan sebuah objek kosong `{}`. Langkah 6 adalah bagian dari fungsi `onPressed` pada tombol "GO!" yang memanggil metode `getNumber`. Pada langkah ini, setelah pemanggilan `getNumber`, `then` digunakan untuk menangkap hasilnya. Dalam blok `then`, nilai hasil dikonversi menjadi string dan diperbarui ke dalam variabel `result` melalui `setState`. Jika ada kesalahan, `catchError` akan menangkapnya dan mengatur `result` ke string "An error Occurred".
 
 - Capture hasil praktikum Anda berupa GIF dan lampirkan di `README`. Lalu lakukan commit dengan pesan "W12: Soal 6".
 
-### Jawab
+### Jawab:
 
 <img src="./docs/prak3-soal6.gif" alt="Screenshot" width="300">
 
 ## **Praktikum 4: Memanggil Future secara paralel**
 
+`main.dart`
+
+```Dart
+import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
+import 'package:async/async.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo Laila',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: const FuturePage(),
+    );
+  }
+}
+
+class FuturePage extends StatefulWidget {
+  const FuturePage({super.key});
+
+  @override
+  State<FuturePage> createState() => _FuturePageState();
+}
+
+class _FuturePageState extends State<FuturePage> {
+  String result = '';
+  late Completer completer;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Back from the Future Laila'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Spacer(),
+            ElevatedButton(
+              onPressed: returnFG,
+              child: const Text("GO!"),
+            ),
+            const Spacer(),
+            Text(result),
+            const Spacer(),
+            const CircularProgressIndicator(),
+            const Spacer()
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future getNumber() {
+    completer = Completer<int>();
+    calculate();
+    return completer.future;
+  }
+
+  calculate() async {
+    try {
+      await Future.delayed(const Duration(seconds: 5));
+      completer.complete(42);
+    } catch (e) {
+      completer.completeError({});
+    }
+  }
+
+  void returnFG() {
+    final futures = Future.wait<int>([
+      returnOneAsync(),
+      returnTwoAsync(),
+      returnThreeAsync(),
+    ]);
+    // FutureGroup<int> futureGroup = FutureGroup<int>();
+    // futureGroup.add(returnOneAsync());
+    // futureGroup.add(returnTwoAsync());
+    // futureGroup.add(returnThreeAsync());
+    // futureGroup.close();
+    futures.then((value) {
+      int total = 0;
+      for (var element in value) {
+        total += element;
+      }
+      setState(() {
+        result = total.toString();
+      });
+    });
+  }
+
+  Future<Response> getData() async {
+    const authority = 'www.googleapis.com';
+    const path = '/books/v1/volumes/tZldEAAAQBAJ';
+    Uri url = Uri.https(authority, path);
+    return await http.get(url);
+  }
+
+  Future<int> returnOneAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 1;
+  }
+
+  Future<int> returnTwoAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 2;
+  }
+
+  Future<int> returnThreeAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 3;
+  }
+
+  Future count() async {
+    int total = 0;
+    total = await returnOneAsync();
+    total += await returnTwoAsync();
+    total += await returnThreeAsync();
+    setState(() {
+      result = total.toString();
+    });
+  }
+}
+```
+
 ### Soal 7
+
 Capture hasil praktikum Anda berupa GIF dan lampirkan di `README`. Lalu lakukan commit dengan pesan "W12: Soal 7".
 
-### Jawab
+### Jawab:
 
 <img src="./docs/prak4-soal7.gif" alt="Screenshot" width="300">
+
+### Soal 8
+
+Jelaskan maksud perbedaan kode langkah 1 dan 4!
+
+### Jawab:
+
+Langkah 1, menggunakan objek `FutureGroup` untuk mengelola sekelompok `Future`. Setiap `Future` ditambahkan ke dalam `FutureGroup` menggunakan methode `add`. Selanjutnya, method `close` dipanggil untuk menandai akhir dari grup `Future`. Setelah itu, `FutureGroup.future` digunakan untuk mendapatkan `Future` tunggal yang menunggu kelompok `Future` selesai. Kemudian, hasil dari setiap `Future` dijumlahkan untuk menghitung total, dan hasilnya diperbarui dalam UI melalui penggunaaan  `setState`.
+
+Sedangkan pada langkah 4, digunakan fungsi `Future.wait` untuk menunggu sejumlah `Future` selesai. Daftar `Future` yang akan ditunggu diatur dalam bentuk `list`, dan `Future.wait` secara langsung menunggu semua `Future` dalam `list` selesai. Setelah itu, hasil dari setiap `Future` dijumlahkan untuk menghitung total, dan hasilnya diperbarui dalam UI melalui `setState`.
+
+Perbedaan utama antara keduanya terletak pada cara mengelola dan menunggu kelompok `Future`. Langkah 1 menggunakan objek `FutureGroup`, sedangkan Langkah 4 langsung menggunakan `Future.wait` untuk menangani beberapa `Future` secara bersamaan. Langkah 4 dapat dianggap lebih langsung dan mudah dipahami, sementara Langkah 1 menunjukkan pendekatan yang lebih modular dengan penggunaan objek `FutureGroup`.
