@@ -410,3 +410,12 @@ Pada langkah 2 tidak menangani error secara eksplisit. Sementara itu, langkah 5 
 ### Jawab
 
 <img src="./docs/prak3-soal6.gif" alt="Screenshot" width="300">
+
+## **Praktikum 4: Memanggil Future secara paralel**
+
+### Soal 7
+Capture hasil praktikum Anda berupa GIF dan lampirkan di `README`. Lalu lakukan commit dengan pesan "W12: Soal 7".
+
+### Jawab
+
+<img src="./docs/prak4-soal7.gif" alt="Screenshot" width="300">
