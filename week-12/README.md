@@ -603,3 +603,25 @@ Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerja
 ### Jawab:
 
 <img src="./docs/prak6-soal11.jpg" alt="Screenshot" width="300">
+
+### Soal 12
+
+- Jika Anda tidak melihat animasi loading tampil, kemungkinan itu berjalan sangat cepat. Tambahkan delay pada method getPosition() dengan kode await Future.delayed(const Duration(seconds: 3));
+
+- Apakah Anda mendapatkan koordinat GPS ketika run di browser? Mengapa demikian?
+
+### Jawab:
+
+Jika menjalankan di browser, koordinat GPS masih dapat muncul atau diperoleh. Ini disebabkan oleh Flutter web yang menggunakan API Geolocation langsung dari browser. Pada Flutter web, izin untuk mengakses lokasi dikelola oleh browser, bukan oleh sistem operasi (seperti Android pada perangkat seluler). Oleh karena itu, meskipun tidak menambahkan izin secara langsung ke `AndroidManifest`, koordinat GPS masih dapat diperoleh di browser, tetapi tetap memerlukan izin dari pengguna.
+
+Berikut hasil ketika dijalankan di browser:
+
+<img src="./docs/prak6-soal12-chrome.gif" alt="Screenshot" width="300">
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di `README`. Lalu lakukan commit dengan pesan "W12: Soal 12".
+
+### Jawab:
+
+<img src="./docs/prak6-soal12.gif" alt="Screenshot" width="300">
+
+
