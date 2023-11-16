@@ -653,3 +653,14 @@ Tidak ada perbedaan UI dengan langkah sebelumnya. Hal ini dikarenakan pada langk
 - Capture hasil praktikum Anda berupa GIF dan lampirkan di `README. Lalu lakukan commit dengan pesan "W12: Soal 14".
 
 <img src="./docs/prak7-soal14.gif" alt="Screenshot" width="300">
+
+## **Praktikum 8: Navigation route dengan Future Function**
+
+### Soal 15
+
+- Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerjaan Anda.
+- Silakan ganti dengan warna tema favorit Anda.
+
+### Jawab:
+
+<img src="./docs/prak8-soal15.jpg" alt="Screenshot" width="300">
