@@ -664,3 +664,23 @@ Tidak ada perbedaan UI dengan langkah sebelumnya. Hal ini dikarenakan pada langk
 ### Jawab:
 
 <img src="./docs/prak8-soal15.jpg" alt="Screenshot" width="300">
+
+### Soal 16
+
+- Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+
+### Jawab:
+
+Apabila button diklik, warnanya akan mengalami perubahan sesuai dengan konfigurasi yang telah ditentukan pada `ElevatedButton()` dalam class `navigation_second.dart`. Hal ini disebabkan oleh adanya fungsi `Navigation.pop()` pada setiap button dengan parameter berupa `context` dan `color` yang telah ditetapkan. Sehingga, setiap kali button diklik, warna yang ditampilkan akan bervariasi sesuai dengan nilai variabel `color` yang telah diatur.
+
+- Gantilah 3 warna pada langkah 5 dengan warna favorit Anda!
+
+### Jawab:
+
+Done
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di `README`. Lalu lakukan commit dengan pesan "W12: Soal 16".
+
+### Jawab:
+
+<img src="./docs/prak8-soal16.gif" alt="Screenshot" width="300">
