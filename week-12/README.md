@@ -641,3 +641,15 @@ Dari kedua praktikum tersebut tidak memiliki perbedaan UI. Keduanya tetap menamp
 <img src="./docs/prak7-soal13.gif" alt="Screenshot" width="300">
 
 - Seperti yang Anda lihat, menggunakan FutureBuilder lebih efisien, clean, dan reactive dengan Future bersama UI.
+
+### Soal 14
+
+- Apakah ada perbedaan UI dengan langkah sebelumnya? Mengapa demikian?
+
+### Jawab:
+
+Tidak ada perbedaan UI dengan langkah sebelumnya. Hal ini dikarenakan pada langkah ini hanya menambahkan `handleError()` yang akan dijalankan ketika terdapat kesalahan. Namun karena pada langkah ini tidak ada kesalahan yang terjadi selama pemrosesan data lokasi. Oleh karena itu, pesan **Something terrible happened!** dari blok penanganan kesalahan tidak ditampilkan.
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di `README. Lalu lakukan commit dengan pesan "W12: Soal 14".
+
+<img src="./docs/prak7-soal14.gif" alt="Screenshot" width="300">
