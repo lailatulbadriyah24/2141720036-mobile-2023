@@ -624,4 +624,20 @@ Berikut hasil ketika dijalankan di browser:
 
 <img src="./docs/prak6-soal12.gif" alt="Screenshot" width="300">
 
+## **Praktikum 7: Manajemen Future dengan FutureBuilder**
 
+### Soal 13
+
+- Apakah ada perbedaan UI dengan praktikum sebelumnya? Mengapa demikian?
+
+### Jawab:
+
+Dari kedua praktikum tersebut tidak memiliki perbedaan UI. Keduanya tetap menampilkan koordinat Geolokasi dengan layout yang sama. Hal ini terjadi karena keduanya masih mengambil lokasi secara sinkron dalam blok `initState`. Pada tampilan UI keduanya memiliki delay yang sama, yaitu 3 detik. Selain itu, UI dapat terlihat sama karena `FutureBuilder` secara otomatis mengelola pembaruan UI, bahkan tanpa pemanggilan `setState` langsung.
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di `README`. Lalu lakukan commit dengan pesan "W12: Soal 13".
+
+### Jawab:
+
+<img src="./docs/prak7-soal13.gif" alt="Screenshot" width="300">
+
+- Seperti yang Anda lihat, menggunakan FutureBuilder lebih efisien, clean, dan reactive dengan Future bersama UI.
