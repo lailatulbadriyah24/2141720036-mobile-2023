@@ -684,3 +684,26 @@ Done
 ### Jawab:
 
 <img src="./docs/prak8-soal16.gif" alt="Screenshot" width="300">
+
+## **Praktikum 9: Memanfaatkan async/await dengan Widget Dialog**
+
+### Soal 17
+
+- Cobalah klik setiap button, apa yang terjadi ? Mengapa demikian ?
+
+### Jawab:
+
+Pada saat mengklik button **Change Color** dan memilih warna pada dialog, maka warna latar belakang layar akan berubah sesuai dengan pilihan warna tersebut. Proses ini terjadi karena nilai `color` diperbarui dengan nilai yang dipilih dalam fungsi `_showColorDialog`, dan setelah itu widget diperbarui menggunakan `setState`. Hal ini 
+menyebabkan widget dibangun kembali dan menunjukkan perubahan warna di layar.
+
+- Gantilah 3 warna pada langkah 3 dengan warna favorit Anda!
+
+### Jawab:
+
+Done
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di `README`. Lalu lakukan commit dengan pesan "W12: Soal 17".
+
+### Jawab:
+
+<img src="./docs/prak8-soal17.gif" alt="Screenshot" width="300">
