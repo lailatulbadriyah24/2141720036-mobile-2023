@@ -18,7 +18,6 @@
 - Lakukan commit hasil jawaban Soal 1 dengan pesan **"W13: Jawaban Soal 1"**
 
 ### Jawab:
-Done
 
 ```Dart
 import 'package:flutter/material.dart';
@@ -54,5 +53,31 @@ class _StreamHomePageState extends State<StreamHomePage> {
   Widget build(BuildContext context) {
     return Container();
   }
+}
+```
+
+### Soal 2
+
+- Tambahkan 5 warna lainnya sesuai keinginan Anda pada variabel `colors` tersebut.
+- Lakukan commit hasil jawaban Soal 2 dengan pesan **"W13: Jawaban Soal 2"**
+
+### Jawab:
+
+```Dart
+import 'package:flutter/material.dart';
+
+class ColorSrean {
+  final List<Color> colors = [
+    Colors.blueGrey,
+    Colors.amber,
+    Colors.deepPurple,
+    Colors.lightBlue,
+    Colors.teal,
+    Colors.green,
+    Colors.cyan,
+    Colors.yellow,
+    Colors.indigo,
+    Colors.pink
+  ];
 }
 ```
