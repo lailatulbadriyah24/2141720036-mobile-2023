@@ -103,3 +103,17 @@ Dengan kata lain, tujuan dari perintah kode tersebut adalah menciptakan stream w
 ### Jawab:
 
 Done
+
+### Soal 4
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di `README`.
+
+### Jawab:
+
+<img src="./docs/prak1-langkah4.gif" alt="Screenshot" width="300">
+
+- Lakukan commit hasil jawaban Soal 4 dengan pesan **"W13: Jawaban Soal 4"**
+
+### Jawab:
+
+Done
