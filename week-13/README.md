@@ -81,3 +81,25 @@ class ColorSrean {
   ];
 }
 ```
+
+### Soal 3
+
+- Jelaskan fungsi keyword `yield*` pada kode tersebut!
+
+### Jawab:
+
+Keyword `yield*` dalam kode tersebut digunakan untuk menggabungkan nilai dari objek iterable ke dalam stream yang dihasilkan oleh fungsi `getColors`. Pada baris `yield* Stream.periodic(...)`, `yield*` memungkinka nilai-nilai yang dihasilkan oleh objek iterable dari `Stream.periodic` yang berisi daftar warna untuk disertakan secara berurutan ke dalam `stream` utama. Dengan kata lain, setiap detik, `stream` akan menghasilkan warna baru dari daftar warna yang telah ditentukan. 
+
+- Apa maksud isi perintah kode tersebut?
+
+### Jawab:
+
+Pada kode tersebut mendefinisikan class `ColorStream` yang memiliki daftar warna dan sebuah metode `getColors` yang mengembalikan `stream` warna. Class ini menggunakan `Stream.periodic` untuk menghasilkan nilai dengan selang waktu tertentu yaitu setiap detik. Melalui penggunaan `yield`, setiap nilai yang dihasilkan oleh `stream` adalah warna dari daftar warna yang telah ditentukan.
+
+Dengan kata lain, tujuan dari perintah kode tersebut adalah menciptakan stream warna yang terus menerus dan berulang dengan rentang waktu sary detik.
+
+- Lakukan commit hasil jawaban Soal 3 dengan pesan **"W13: Jawaban Soal 3"**
+
+### Jawab:
+
+Done
