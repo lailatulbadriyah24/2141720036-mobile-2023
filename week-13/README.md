@@ -117,3 +117,23 @@ Done
 ### Jawab:
 
 Done
+
+### Soal 5
+
+- Jelaskan perbedaan menggunakan `listen` dan `await for` (langkah 9)!
+
+### Jawab:
+
+Perbedaan menggunakan `listen` dan `await for`
+
+- `listen` digunakan untuk memasang pendengar pada `stream`. Dalam konteks ini, ketika `stream` menghasilkan nilai baru, `callback` yang terkadung dalam `listen` akan diaktifkan. Dalam kode ini, tidak ada penggunaan `await`, sehingga pembaruan tampilan dapat terjadi secara asinkronus, sehingga blok `setState` akan diekseskusi setiap kali `stream` mengeluarkan nilai baru.
+
+- `await for` digunakan unutuk mendengarkan `stream` secara langsung di dalam metode `changeColor()`. Dengan kata lain, penggunaan kata kunci `await` memastikan bahwa setiap langkah di dalam blok perulangan akan menunggu hingga `stream` menghasilkan nilai sebeluum melanjutkan ke langkah berikutnya. Dalam situasi ini, ketika `stream` menghasilkan nilai baru (warna baru), blok `setState` dieksekusi untuk memperbarui tampilan, menciptakan respons yang sesuai dengan perubahan nilai dalam `stream`.
+
+- Pada intinya, penggunaan `await for` terjadi ketika kita perlu menunda proses hingga setiap iterasi `stream` selesai sebelum melanjutkan ke iterasi berikutnya. Sementara itu, penggunaan `listen` diterapkan ketika kita ingin menangani nilai secara asinkron, memungkinkan kelanjutan ke iterasi berikutnya tanpa harus menunggu penyelesaian satu iterasi sebelumnya.
+
+- Lakukan commit hasil jawaban Soal 5 dengan pesan **"W13: Jawaban Soal 5"**
+
+### Jawab:
+
+Done
