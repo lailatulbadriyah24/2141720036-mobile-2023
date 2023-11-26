@@ -225,3 +225,35 @@ Pada **langkah 2** maksudnya adalah untuk melakukan langganan (subscribe) pada `
 ### Jawab:
 
 Done
+
+## **Praktikum 5: Multiple Stream Subscriptions**
+
+### Soal 10
+
+Jelaskan mengapa error itu bisa terjadi ?
+
+### Jawab:
+
+Error tersebut terjadi saat mencoba menambahkan atau membuat dua `subscription` pada `stream` yang sama tanpa membatalkan `subscription` sebelumnya. Situasi ini terjadi ketika `subscription2` diinisialisasi dalam metode `initState()`, padahal `subscription` pertama sudah ada untuk menangani `stream` yang sama pada saat yang bersamaan.
+
+<img src="./docs/prak5-soal10.jpg" alt="Screenshot" width="300">
+
+### Soal 11
+
+- Jelaskan mengapa hal itu bisa terjadi ?
+
+### Jawab:
+
+Pada saat tombol `New Random Number` ditekan, dua angka yang identik akan dihasilkan. Hal ini merupakan keluaran dari `stream` yang dipanggil oleh objek `subscription` dan `subscription2`, yang menghasilkan nilai berupa `event` (angka acak) yang dipisahkan oleh tanda '-'. Pada saat tombol `'Stop Stream'` ditekan, langganan terhadap `stream` akan dihentikan, dan meskipun tombol `New Random Number` tetap ditekan, output tidak akan dihasilkan lagi.
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+
+### Jawab:
+
+<img src="./docs/prak5-soal11.gif" alt="Screenshot" width="300">
+
+- Lalu lakukan commit dengan pesan "W13: Jawaban Soal 10,11".
+
+### Jawab:
+
+Done
