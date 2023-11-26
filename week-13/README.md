@@ -161,3 +161,23 @@ Pada **langkah 8** tersebut mencakup pengaturan awal untuk mengelola aliran data
 ### Jawab:
 
 Done
+
+### Soal 7
+
+- Jelaskan maksud kode langkah 13 sampai 15 tersebut!
+
+### Jawab:
+
+Kode pada langkah 13 hingga 15 akan membuat handling ketika terjadi error menggunakan metode `addError()` dalam class `stream.dart`. Dalam konteks ini, jika terjadi error atau kesalahan selama proses iterasi atau saat `stream` menghasilkann ilai, maka fungsi `addError()` dipanggil untuk menangani situasi tersebut. Sebagai hasil dari penanganan kesalahan, nilai variabel dari `lastNumber` akan diatur menjadi -1.
+
+- Kembalikan kode seperti semula pada Langkah 15, comment addError() agar Anda dapat melanjutkan ke praktikum 3 berikutnya.
+
+### Jawab:
+
+Done
+
+- Lalu lakukan commit dengan pesan "W13: Jawaban Soal 7".
+
+### Jawab:
+
+Done
