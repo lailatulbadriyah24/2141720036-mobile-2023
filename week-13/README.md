@@ -279,3 +279,32 @@ Pada **langkah 3**, terdapat method `getNumbers` pada kelas `NumberStream`. Meth
 ### Jawab:
 
 Done
+
+## **Praktikum 7: BLoC Pattern**
+
+### Soal 13
+
+- Jelaskan maksud praktikum ini ! Dimanakah letak konsep pola BLoC-nya ?
+
+### Jawab:
+
+- `RandomNumberBloc Class`
+Dalam class ini, terdapat dua `StreamController` yaitu `generateRandomController` untuk menerima peristiwa input, dan `_randomNumberController` untuk mengirimkan hasil output. Melalui penggunaan method `generateRandom`, kita dapat memberikan input dalam bentuk peristiwa, dan melalui method `randomNumber`, kita dapat menerima output berupa angka acak. Saaat sebuah peristiwa baru diterima, class ini menghasilkan angka acak menggunakan objek `Random` dan mengirimkannya ke dalam `stream _randomNumberController`.
+
+- `RandomScreen class`
+Dalam class ini, `RandomScreen` adalah widget yang menggunakan `RandomNumberBloc`untuk mengelola logika bisnis serta tampilan pengguna yang terkait angka acak. Dalam `build`, kita menggunakan `StreamBuilder` untuk membangun antarmuka pengguna yang secara otomatis terupdate setiap kali ada perubahan pada `stream _bloc.randomNumber`. Ketika button "Refresh" ditekan, hal tersebut  memicu `_bloc.generateRandom.add(null)`, memberi tahu `bloc` bahwa peristiwa baru telah terjadi, dan `bloc` kemudian menghasilkan angka acak baru.
+
+- `Main class`
+Di dalam class ini, fungsi `main` digunakan untuk memulai aplikasi. Dengan menggunakan  `MaterialApp`, kita menetapkan tema dasar aplikasi dan menentukan bahwa layar awal akan menampilkan `RandomScreen` sebagai `widget` utama. Hal ini mengikuti konsep BLoC, di mana `RandomScreen` bertindak sebagai bagian antarmuka pengguna yang berinteraksi dengan `RandomNumberBloc` untuk mengelola logika terkait angka acak. Dengan menetapkan `widget` utama sebagai `RandomScreen` dalam fungsi `main`, aplikasi memulai alur kerja yang terstruktur sesuai konsep BLoC, di mana logika bisnis dipisahkan dari antarmuka pengguna.
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+
+<img src="./docs/prak7-soal13.gif" alt="Screenshot" width="300">
+
+### Jawab:
+
+- Lalu lakukan commit dengan pesan "W13: Jawaban Soal 13".
+
+### Jawab:
+
+Done
