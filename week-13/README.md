@@ -257,3 +257,25 @@ Pada saat tombol `New Random Number` ditekan, dua angka yang identik akan dihasi
 ### Jawab:
 
 Done
+
+## **Praktikum 6: StreamBuilder**
+
+### Soal 12
+
+- Jelaskan maksud kode pada langkah 3 dan 7 !
+
+### Jawab:
+
+Pada **langkah 3**, terdapat method `getNumbers` pada kelas `NumberStream`. Method ini menghasilkan sebuah `Stream<int>` yang bertindak sebagai aliran data periodik. Dengan menggunakan `Stream.periodic`, tiap 1 detik, fungsi yang menghasilkan angka acak antara 0 dan 9 akan dijalankan. Sedangkan pada **langkah 7**, digunakan `StreamBuilder` untuk membangun UI yang bergantung pada `numberStream`. Pada bagian`builder` terdapat penanganan kondisi, yaitu: jika `snapshot.hasError` bernilai `true`, menandakan ada kesalahan dalam `stream`, maka akan dicetak pesan 'Error!', jika `snapshot.hasData` bernilai `true`, maka akan ditampilkan teks dengan nilai terbaru dari `stream` di tengah layar, jika tidak ada data yang tersedia. `SizedBox.shrink` digunakan untuk mengembalikan widget kosong, sehingga tampilan tetap kosong.
+
+- Capture hasil praktikum Anda berupa GIF dan lampirkan di README.
+
+### Jawab:
+
+<img src="./docs/prak6-soal12.gif" alt="Screenshot" width="300">
+
+- Lalu lakukan commit dengan pesan "W13: Jawaban Soal 12".
+
+### Jawab:
+
+Done
